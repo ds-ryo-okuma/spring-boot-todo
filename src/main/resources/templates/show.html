@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ToDo 詳細</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div>
+		<p>id</p>
+		<p th:text="${todo.id}" />
+		<p>名前</p>
+		<p th:text="${todo.name}" />
+	</div>
+	<div>
+		<a href="/todo/list">ToDo 一覧</a>
+	</div>
+</body>
+</html>
