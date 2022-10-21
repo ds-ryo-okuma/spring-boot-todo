@@ -14,15 +14,25 @@ services:
     volumes:
 #      - ./docker/mysql/init:/docker-entrypoint-initdb.d # 初期データ
       - db_volume:/var/lib/mysql                        # 永続化
+    networks:
+      - app-net
 
-#  spring:
-#    build: ./docker/springboot/
-#    ports:
-#      - "8080:8080"
-#    volumes:
-#      - ./build/libs:/app/lib
-#    depends_on:
-#      - db
+  spring:
+    build: ./docker/springboot/
+    ports:
+      - "8080:8080"
+    environment:
+      MYSQL_HOST: spring-boot-todo-db-1
+    volumes:
+      - ./build/libs:/app/lib
+    depends_on:
+      - db
+    networks:
+      - app-net
 
 volumes:
   db_volume:
+
+networks:
+  app-net:
+    driver: bridge
