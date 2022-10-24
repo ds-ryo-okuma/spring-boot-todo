@@ -1,38 +1,19 @@
 version: '3'
-services:
-  db:
-    image: mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: spring
-      MYSQL_USER: spring
-      MYSQL_PASSWORD: spring
-      TZ: Asia/Tokyo
-    command: mysqld
-    ports:
-      - '3306:3306'
-    volumes:
-#      - ./docker/mysql/init:/docker-entrypoint-initdb.d # 初期データ
-      - db_volume:/var/lib/mysql                        # 永続化
-    networks:
-      - app-net
 
-  spring:
-    build: ./docker/springboot/
+services:
+
+  db:
+    image: oracle/database:18.4.0-xe
+    container_name: oracle18c
     ports:
-      - "8080:8080"
-    environment:
-      MYSQL_HOST: spring-boot-todo-db-1
+      - 1521:1521
     volumes:
-      - ./build/libs:/app/lib
-    depends_on:
-      - db
-    networks:
-      - app-net
+      - db-volume:/opt/oracle/oradata
+      - ./docker/db/scripts/startup:/opt/oracle/scripts/startup
+      - ./docker/db/scripts/setup:/opt/oracle/scripts/setup
+    environment:
+      - ORACLE_PWD=passw0rd
+      - NLS_LANG=Japanese_Japan.AL32UTF8
 
 volumes:
-  db_volume:
-
-networks:
-  app-net:
-    driver: bridge
+  db-volume:
