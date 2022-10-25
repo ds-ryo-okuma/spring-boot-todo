@@ -13,5 +13,5 @@
   
   
 ## 3.SpringBoot Application の起動
-  Eclipse より起動
-  
+   Eclipse で Gradle プロジェクトのインポート
+   Eclipse より SpringBoot Application の起動
