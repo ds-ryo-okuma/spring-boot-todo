@@ -16,5 +16,5 @@ CREATE TABLE &USER_NAME..todo
 -- データ挿入
 INSERT INTO &USER_NAME..todo(name) values('初期データ１');
 INSERT INTO &USER_NAME..todo(name) values('初期データ２');
-INSERT INTO &USER_NAME..todo(name) values('初期データ３');
+INSERT INTO &USER_NAME..todo(name) values('初期データ4');
 COMMIT;
