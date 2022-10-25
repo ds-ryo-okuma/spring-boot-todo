@@ -7,7 +7,7 @@
 
 
 ## 2.docker container の起動
-  docker-compose.yml のあるフォルダで書きコマンドを実行
+  docker-compose.yml のあるフォルダで下記コマンドを実行
   
   `docker-compose up -d`
   
