@@ -1,4 +1,4 @@
-package com.example.springboottodo;
+package com.example.springboottodo.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

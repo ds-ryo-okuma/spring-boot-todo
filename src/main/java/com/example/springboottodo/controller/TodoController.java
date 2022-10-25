@@ -1,4 +1,4 @@
-package com.example.springboottodo;
+package com.example.springboottodo.controller;
 
 import javax.validation.Valid;
 
@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.example.springboottodo.entity.Todo;
+import com.example.springboottodo.form.TodoForm;
+import com.example.springboottodo.repository.TodoRepository;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path="/todo") // This means URL's start with /demo (after Application path)
